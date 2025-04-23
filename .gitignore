@@ -1,24 +1,26 @@
-# Logs
-logs
-*.log
+# node_modules (paquetes instalados)
+node_modules/
+
+# build (carpeta generada por Vite al hacer build)
+dist/
+
+# Archivos de logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Configs del sistema operativo
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+
+# Configs de entorno
+.env
+.env.local
+.env.*.local
+
+# VSCode settings (si usás VSCode)
+.vscode/
+
+# Archivos temporales
+*.log
+*.tmp
