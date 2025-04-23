@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ClientDashboard from "./pages/ClientDashboard";
 import Profile from "./pages/Profile";
+import Reservas from "./pages/Reservas";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/cliente" element={<ClientDashboard />} />
         <Route path="/perfil" element={<Profile />} />
+        <Route path="/reservas" element={<Reservas />} />
       </Routes>
     </div>
   );
