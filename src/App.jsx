@@ -4,6 +4,8 @@ import Navbar from './components/Navbar'; // Importamos la barra de navegación
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ClientDashboard from "./pages/ClientDashboard";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/cliente" element={<ClientDashboard />} />
+        <Route path="/perfil" element={<Profile />} />
       </Routes>
     </div>
   );
