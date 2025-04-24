@@ -1,39 +1,61 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // Si ya tienes lucide-react
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const { user, logout } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-orange-500 p-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="text-white font-bold text-xl">BodyForge</div>
-        <div className="hidden md:flex space-x-6">
-          <Link to="/" className="text-white hover:text-orange-200">Inicio</Link>
-          <Link to="/login" className="text-white hover:text-orange-200">Login</Link>
-          <Link to="/register" className="text-white hover:text-orange-200">Registro</Link>
-          <Link to="/reservas" className="text-white hover:text-orange-200">Reservas</Link>
-        </div>
+    <nav className="bg-orange-600 text-white p-4 flex justify-between items-center">
+      <Link to="/" className="flex items-center">
+        <img src={logo} alt="BodyForge Logo" className="h-20" />
+      </Link>
 
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+      <div className="flex items-center gap-4">
+        {user.loggedIn && (
+          <Link to="/reservas" className="hover:underline">
+            Reservas
+          </Link>
+        )}
+
+        {!user.loggedIn ? (
+          <>
+            <Link to="/login" className="hover:underline">Login</Link>
+            <Link to="/register" className="hover:underline">Registro</Link>
+          </>
+        ) : (
+          <div className="relative">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="hover:underline"
+            >
+              {user.name}
+            </button>
+            {menuOpen && (
+              <div className="absolute right-0 mt-2 bg-white text-black rounded shadow-md w-40 z-50">
+                <Link
+                  to="/perfil"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Perfil
+                </Link>
+                <button
+                  onClick={() => {
+                    logout();
+                    setMenuOpen(false);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                >
+                  Cerrar sesión
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
-
-      {/* Menu móvil */}
-      {isOpen && (
-        <div className="md:hidden bg-orange-500 space-y-4 p-4">
-          <Link to="/" className="text-white block">Inicio</Link>
-          <Link to="/login" className="text-white block">Login</Link>
-          <Link to="/register" className="text-white block">Registro</Link>
-          <Link to="/reservas" className="text-white block">Reservas</Link>
-        </div>
-      )}
     </nav>
   );
 };

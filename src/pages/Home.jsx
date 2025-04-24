@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import logo from "../assets/logo.png";
 
 const imagenes = [
   "/src/assets/gym1.jpg",
@@ -26,7 +27,9 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-orange-50 flex flex-col justify-center items-center">
       <header className="text-center p-8 bg-orange-600 text-white w-full">
-        <h1 className="text-5xl font-bold">Gimnasio BodyForge</h1>
+        <Link to="/" className="flex justify-center items-center">
+          <img src={logo} alt="BodyForge Logo" className="h-60" />
+        </Link>
         <p className="mt-4 text-lg">¡Bienvenido a tu lugar para entrenar y mejorar tu salud!</p>
       </header>
 
