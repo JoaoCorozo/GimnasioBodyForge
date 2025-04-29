@@ -80,6 +80,42 @@ const Home = () => {
         </div>
       </main>
 
+      {/* Sección de beneficios */}
+      <section className="w-full max-w-5xl mt-16 px-4" data-aos="fade-up">
+        <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">¿Por qué elegir BodyForge?</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition-transform duration-300">
+            <div className="mb-4 text-orange-500 flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M6.75 3v2.25M17.25 3v2.25M3 8.25h18M5.25 8.25v12h13.5v-12M8.25 12h1.5v3h-1.5v-3zM14.25 12h1.5v3h-1.5v-3z" />
+              </svg>
+            </div>
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Equipamiento Profesional</h4>
+            <p className="text-sm text-gray-600">Máquinas modernas y zonas especializadas para cada tipo de entrenamiento.</p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition-transform duration-300">
+            <div className="mb-4 text-orange-500 flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M12 8v4l2 2m8-2A10 10 0 1 1 2 12a10 10 0 0 1 20 0z" />
+              </svg>
+            </div>
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Horarios Flexibles</h4>
+            <p className="text-sm text-gray-600">Entrena cuando quieras. Abrimos desde temprano hasta tarde.</p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition-transform duration-300">
+            <div className="mb-4 text-orange-500 flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M17 20h5v-2a3 3 0 0 0-5.356-1.857M9 20H4v-2a3 3 0 0 1 5.356-1.857M15 10a3 3 0 1 0-6 0 3 3 0 0 0 6 0z" />
+              </svg>
+            </div>
+            <h4 className="text-lg font-semibold text-gray-800 mb-2">Comunidad Apasionada</h4>
+            <p className="text-sm text-gray-600">Únete a un ambiente donde todos se apoyan para lograr sus metas.</p>
+          </div>
+        </div>
+      </section>
+
       <footer className="mt-12 p-4 text-center text-gray-700" data-aos="fade-in">
         <p>© 2025 Gimnasio BodyForge. Todos los derechos reservados.</p>
       </footer>
