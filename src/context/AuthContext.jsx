@@ -3,10 +3,19 @@ import { createContext, useContext, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({ name: "Juan Pérez", loggedIn: true });
+  // Simula un usuario autenticado como estado inicial
+  const [user, setUser] = useState({
+    name: "Juan Pérez",
+    email: "juan.perez@example.com",
+  });
 
-  const login = (userData) => setUser({ ...userData, loggedIn: true });
-  const logout = () => setUser({ name: "", loggedIn: false });
+  const login = (userData) => {
+    setUser(userData); // Actualiza el estado del usuario
+  };
+
+  const logout = () => {
+    setUser(null); // Limpia el estado del usuario
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
@@ -15,4 +24,10 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
